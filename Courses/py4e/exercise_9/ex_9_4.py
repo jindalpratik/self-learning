@@ -10,5 +10,12 @@ for line in fhand:
     if not line.startswith('From '):
         continue
     li = line.split()
-    di[li[2]] = di.get(li[2], 0) + 1
-print(di)
+    di[li[1]] = di.get(li[1], 0) + 1
+# print(di)
+max = 0
+index = 0
+for i in di:
+    if di[i] > max:
+        index = i
+        max = di[i]
+print(index , di[index])

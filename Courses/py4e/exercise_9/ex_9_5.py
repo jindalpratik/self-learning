@@ -10,5 +10,14 @@ for line in fhand:
     if not line.startswith('From '):
         continue
     li = line.split()
-    di[li[2]] = di.get(li[2], 0) + 1
+    colpos = li[1].find('@')
+    email = li[1]
+    di[email[colpos + 1 : ]] = di.get(email[colpos + 1 : ], 1) + 1
 print(di)
+# max = 0
+# index = 0
+# for i in di:
+#     if di[i] > max:
+#         index = i
+#         max = di[i]
+# print(index , di[index])
