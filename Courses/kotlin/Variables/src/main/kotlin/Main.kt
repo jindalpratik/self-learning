@@ -9,7 +9,7 @@ fun main() {
 
     var newName = "Kotlin doesn't require you to define the type."
 
-    
+
 
 
     println("Hello $userName! your age is $age")
