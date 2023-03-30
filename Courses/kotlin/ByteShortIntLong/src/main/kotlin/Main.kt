@@ -21,4 +21,9 @@ fun main() {
     println("Short maximum value is: $myMaxShortValue")
     println("Short maximum value is: $myMinShortValue")
 
+    val myMaxLongValue: Long = Long.MAX_VALUE
+    val myMinLongValue: Long = Long.MIN_VALUE
+
+    println("Short maximum value is: $myMaxLongValue")
+    println("Short maximum value is: $myMinLongValue")
 }
