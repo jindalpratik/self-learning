@@ -23,10 +23,10 @@ soup = BeautifulSoup(fhand, "html5lib")
 tags = soup('span')
 temp_pos = 0
 for tag in tags:
-    if tag.get('class', None) == "a-offscreen":
-        print(tag)
+    tag_class = tag.get('class')
+    try:
+        if tag_class[0] == "a-offscreen":
+            print(tag)
+    except:
+        continue
     # Name = re.findall('known_by_(.*).html' , url)
-
-
-
-
