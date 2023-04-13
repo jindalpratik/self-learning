@@ -20,13 +20,12 @@ except:
 # html = urlopen(url, context=ctx).read()
 soup = BeautifulSoup(fhand, "html5lib")
 # Retrieve all of the anchor tags
-tags = soup('span')
+tags = soup('li')
 temp_pos = 0
 for tag in tags:
-    tag_class = tag.get('class')
+    tag_class = tag.get('data-price')
     try:
-        if tag_class[0] == "a-offscreen":
-            print(tag)
+        print(tag_class)
     except:
         continue
     # Name = re.findall('known_by_(.*).html' , url)
