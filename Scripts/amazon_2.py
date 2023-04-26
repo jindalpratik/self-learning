@@ -7,7 +7,6 @@ except:
 line_till_point = ""
 count = 0
 count_2 = 0
-prev = ""
 for line in fhand:
     # print(line)
     count += 1
