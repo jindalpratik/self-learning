@@ -6,4 +6,3 @@ Scripts/temp
 # Rust
 *.pdb
 target/
-Cargo.lock
