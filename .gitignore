@@ -1,3 +1,7 @@
+# General
 test.*
 *.exe
 Scripts/temp
+
+# Rust
+*.pdb
