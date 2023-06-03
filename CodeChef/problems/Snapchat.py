@@ -5,11 +5,10 @@ for i in range(int(input())):
     count = 0
     maxCount = 0
     for k in range(n):
-        if(X[k] > 0 and Y[k] > 0):
-            count+= 1
+        if (X[k] > 0 and Y[k] > 0):
+            count += 1
             if count > maxCount:
                 maxCount = count
         else:
             count = 0
     print(maxCount)
-        
