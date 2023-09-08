@@ -6,3 +6,11 @@ Scripts/temp
 # Rust
 *.pdb
 target/
+
+# Secrets
+config.*
+secrets.*
+
+## Database files
+*.db
+*.sqlite
