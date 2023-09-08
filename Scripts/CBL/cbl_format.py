@@ -1,11 +1,14 @@
 import mokkari
-mokkari_sqlite_cache = mokkari.sqlite_cache.SqliteCache(db_name="mokkari_cache.db",expire=1)
+mokkari_sqlite_cache = mokkari.sqlite_cache.SqliteCache(db_name="metron_cache.db",expire=1)
 
-
+import simyan
 from simyan.comicvine import Comicvine
 from simyan.sqlite_cache import SQLiteCache as comicvine_sqlite_cache
 
 from config import metron_username, metron_password, comicvine_api_key 
+
+print("Simyan verison : ", simyan.__version__)
+c = Comicvine(api_key="Comicvine API Key", cache=comicvine_sqlite_cache(path = "comicvine_cache.db", expiry=1)) #type: ignore
 
 print("Mokkari verison :", mokkari.__version__)
 m = mokkari.api(username = metron_username, passwd= metron_password, cache=mokkari_sqlite_cache)
