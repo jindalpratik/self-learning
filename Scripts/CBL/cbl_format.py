@@ -11,7 +11,7 @@ from config import metron_username, metron_password, comicvine_api_key
 
 # initializing simyan
 print("Simyan verison : ", simyan.__version__)
-c = Comicvine(api_key="Comicvine API Key", cache=comicvine_sqlite_cache(path = "comicvine_cache.db", expiry=1)) #type: ignore
+c = Comicvine(api_key=comicvine_api_key, cache=comicvine_sqlite_cache(path = "comicvine_cache.db", expiry=1)) #type: ignore
 
 # initializing mokkari
 print("Mokkari verison :", mokkari.__version__)
