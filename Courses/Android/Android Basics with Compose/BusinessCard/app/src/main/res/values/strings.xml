@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Business Card</string>
+    <string name="full_name">Pratik Jindal</string>
+    <string name="title">Univesity Student</string>
+    <string name="contact_number">+91 xxxxx xxxxx</string>
+    <string name="social_link">\@jindalpratik</string>
+    <string name="email_address">jindalpratik@gmail.com</string>
+</resources>
