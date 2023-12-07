@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Art Space</string>
+    <string name="previous">Previous</string>
+    <string name="next">Next</string>
+    <string name="image_asset_1_title">White Flower in tilt shift lens</string>
+    <string name="image_asset_1_artist">Brian Gomes</string>
+    <string name="image_asset_1_year">(2020)</string>
+</resources>
