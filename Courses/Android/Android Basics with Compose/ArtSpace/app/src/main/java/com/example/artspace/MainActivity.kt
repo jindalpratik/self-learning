@@ -15,6 +15,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -25,7 +26,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -169,22 +169,25 @@ fun ArtSpaceArtworkDescription(
     ) {
         Column(
             modifier = Modifier
-                .background(color = Color(0xffecebf4))
+                .background(color = MaterialTheme.colorScheme.secondaryContainer)
                 .padding(20.dp)
         ) {
             Text(
                 text = imageAssetTitleId,
+                color = MaterialTheme.colorScheme.onSecondaryContainer,
                 fontSize = 25.sp,
                 fontWeight = FontWeight.Light
             )
             Row {
                 Text(
                     text = imageAssetArtistId,
+                    color = MaterialTheme.colorScheme.onSecondaryContainer,
                     fontWeight = FontWeight.Bold
                 )
                 Spacer(modifier = Modifier.width(5.dp))
                 Text(
                     text = imageAssetYearId,
+                    color = MaterialTheme.colorScheme.onSecondaryContainer,
                     fontWeight = FontWeight.Light
                 )
             }
@@ -204,19 +207,23 @@ fun ArtSpaceChangeArtworkRow(
     ) {
         Button(
             modifier = Modifier.width(150.dp),
+            colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.primaryContainer),
             onClick = onClickPrevious
         ) {
             Text(
                 text = stringResource(R.string.previous),
+                color = MaterialTheme.colorScheme.onPrimaryContainer,
                 textAlign = TextAlign.Center
             )
         }
         Button(
             modifier = Modifier.width(150.dp),
+            colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.primaryContainer),
             onClick = onClickNext
         ) {
             Text(
                 text = stringResource(R.string.next),
+                color = MaterialTheme.colorScheme.onPrimaryContainer,
                 textAlign = TextAlign.Center
             )
         }
