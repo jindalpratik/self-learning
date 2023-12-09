@@ -1,7 +1,6 @@
 package com.example.artspace
 
 import android.os.Bundle
-import android.widget.ImageView
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
@@ -57,12 +56,46 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun ArtSpaceApp() {
     var imageAssetBase by remember { mutableIntStateOf(1) }
-
     var imageAssetId = painterResource(id = R.drawable.image_asset_1)
-    //todo: Make it completely based on the number so something like R.drawable.image_asset_$imageAssetBase
+    var imageAssetTitleId = stringResource(id = R.string.image_asset_1_title)
+    var imageAssetArtistId = stringResource(id = R.string.image_asset_1_artist)
+    var imageAssetYearId = stringResource(id = R.string.image_asset_1_year)
+    val totalImages = 3
+
     when(imageAssetBase) {
         1 -> {
             imageAssetId = painterResource(id = R.drawable.image_asset_1)
+            imageAssetTitleId = stringResource(id = R.string.image_asset_1_title)
+            imageAssetArtistId = stringResource(id = R.string.image_asset_1_artist)
+            imageAssetYearId = stringResource(id = R.string.image_asset_1_year)
+        }
+        2 -> {
+            imageAssetId = painterResource(id = R.drawable.image_asset_2)
+            imageAssetTitleId = stringResource(id = R.string.image_asset_2_title)
+            imageAssetArtistId = stringResource(id = R.string.image_asset_2_artist)
+            imageAssetYearId = stringResource(id = R.string.image_asset_2_year)
+        }
+        3 -> {
+            imageAssetId = painterResource(id = R.drawable.image_asset_3)
+            imageAssetTitleId = stringResource(id = R.string.image_asset_3_title)
+            imageAssetArtistId = stringResource(id = R.string.image_asset_3_artist)
+            imageAssetYearId = stringResource(id = R.string.image_asset_3_year)
+        }
+    }
+
+    fun onClickPrevious() {
+        if(imageAssetBase > 1) {
+            imageAssetBase--
+        } else {
+            imageAssetBase = totalImages
+        }
+    }
+
+    fun onClickNext() {
+        if(imageAssetBase < totalImages) {
+            imageAssetBase++
+        } else {
+            imageAssetBase = 1
         }
     }
 
@@ -80,6 +113,7 @@ fun ArtSpaceApp() {
         ) {
             ArtSpaceArtworkImage(
                 imageAssetId = imageAssetId,
+                imageAssetTitleId = imageAssetTitleId,
                 modifier = Modifier
                     .fillMaxWidth()
             )
@@ -91,11 +125,16 @@ fun ArtSpaceApp() {
             verticalArrangement = Arrangement.Bottom
         ) {
             ArtSpaceArtworkDescription(
+                imageAssetArtistId = imageAssetArtistId,
+                imageAssetTitleId = imageAssetTitleId,
+                imageAssetYearId = imageAssetYearId,
                 modifier = Modifier
                     .fillMaxWidth()
             )
             Spacer(modifier = Modifier.height(20.dp))
             ArtSpaceChangeArtworkRow(
+                onClickPrevious = { onClickPrevious() },
+                onClickNext = { onClickNext() },
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(bottom = 10.dp, start = 20.dp, end = 20.dp)
@@ -107,17 +146,23 @@ fun ArtSpaceApp() {
 @Composable
 fun ArtSpaceArtworkImage(
     imageAssetId: Painter,
+    imageAssetTitleId: String,
     modifier: Modifier = Modifier
 ) {
     Image(
         painter = imageAssetId,
-        contentDescription = stringResource(R.string.image_asset_1_title),
+        contentDescription = imageAssetTitleId,
         modifier = modifier.padding(all = 30.dp)
     )
 }
 
 @Composable
-fun ArtSpaceArtworkDescription(modifier: Modifier = Modifier) {
+fun ArtSpaceArtworkDescription(
+    imageAssetTitleId: String,
+    imageAssetArtistId: String,
+    imageAssetYearId: String,
+    modifier: Modifier = Modifier
+) {
     Column(
         modifier = modifier,
         horizontalAlignment = Alignment.CenterHorizontally
@@ -128,18 +173,18 @@ fun ArtSpaceArtworkDescription(modifier: Modifier = Modifier) {
                 .padding(20.dp)
         ) {
             Text(
-                text = stringResource(R.string.image_asset_1_title),
+                text = imageAssetTitleId,
                 fontSize = 25.sp,
                 fontWeight = FontWeight.Light
             )
             Row {
                 Text(
-                    text = stringResource(R.string.image_asset_1_artist),
+                    text = imageAssetArtistId,
                     fontWeight = FontWeight.Bold
                 )
                 Spacer(modifier = Modifier.width(5.dp))
                 Text(
-                    text = stringResource(R.string.image_asset_1_year),
+                    text = imageAssetYearId,
                     fontWeight = FontWeight.Light
                 )
             }
@@ -148,14 +193,18 @@ fun ArtSpaceArtworkDescription(modifier: Modifier = Modifier) {
 }
 
 @Composable
-fun ArtSpaceChangeArtworkRow(modifier: Modifier = Modifier) {
+fun ArtSpaceChangeArtworkRow(
+    onClickPrevious: () -> Unit,
+    onClickNext: () -> Unit,
+    modifier: Modifier = Modifier
+) {
     Row(
         modifier = modifier.fillMaxSize(),
         horizontalArrangement = Arrangement.SpaceBetween
     ) {
         Button(
             modifier = Modifier.width(150.dp),
-            onClick = { /*TODO*/ }
+            onClick = onClickPrevious
         ) {
             Text(
                 text = stringResource(R.string.previous),
@@ -164,7 +213,7 @@ fun ArtSpaceChangeArtworkRow(modifier: Modifier = Modifier) {
         }
         Button(
             modifier = Modifier.width(150.dp),
-            onClick = { /*TODO*/ }
+            onClick = onClickNext
         ) {
             Text(
                 text = stringResource(R.string.next),
