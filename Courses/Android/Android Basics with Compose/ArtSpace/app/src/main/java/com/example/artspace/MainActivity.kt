@@ -14,6 +14,8 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.MaterialTheme
@@ -62,6 +64,8 @@ fun ArtSpaceApp() {
     var imageAssetYearId = stringResource(id = R.string.image_asset_1_year)
     val totalImages = 3
 
+    /* Todo: Use a class for data once you learn of it*/
+
     when(imageAssetBase) {
         1 -> {
             imageAssetId = painterResource(id = R.drawable.image_asset_1)
@@ -99,10 +103,15 @@ fun ArtSpaceApp() {
         }
     }
 
+    /* Todo: Screen not being scrollable */
+    /* Todo: Implement swipe actions */
+    /* Todo: Implement long press actions for button */
+
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(all = 10.dp),
+            .padding(all = 10.dp)
+            .verticalScroll(rememberScrollState()),
     ) {
         Column(
             modifier = Modifier
