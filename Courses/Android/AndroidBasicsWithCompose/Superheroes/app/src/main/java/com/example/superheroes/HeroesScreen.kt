@@ -31,6 +31,8 @@ import com.example.superheroes.data.HeroesRepository
 import com.example.superheroes.model.Hero
 import com.example.superheroes.ui.theme.SuperheroesTheme
 
+// TODO: Implement animations from solution code https://github.com/google-developer-training/basic-android-kotlin-compose-training-superheroes/blob/main/app/src/main/java/com/example/superheroes/HeroesScreen.kt#L70
+
 @Composable
 fun HeroList(
     modifier: Modifier = Modifier,
