@@ -1,22 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Data Creator</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <div id="content">
-      <h1>Data Creator</h1>
-      <br />
-      <div id="sketchPadContainer"></div>
-    </div>
-    <script src="js/sketchPad.js"></script>
-    <script src="js/draw.js"></script>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Data Creator</title>
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+    <body>
+        <div id="content">
+            <h1>Data Creator</h1>
+            <div>
+                <input id="student" type="text" placeholder="type your name" />
+                <span id="instructions"></span>
+                <button id="advanceBtn" onclick="start();">START</button>
+            </div>
+            <br />
+            <div id="sketchPadContainer" style="visibility: hidden"></div>
+        </div>
+        <script src="js/sketchPad.js"></script>
+        <script src="js/draw.js"></script>
 
-    <script>
-      const sketchPad = new SketchPad(sketchPadContainer);
-    </script>
-  </body>
+        <script>
+            let index = 0;
+            const labels = [
+                "cars",
+                "fish",
+                "house",
+                "tree",
+                "bicycle",
+                "guitar",
+                "pencil",
+                "clock",
+            ];
+
+            const data = {
+                student: null,
+                session: new Date().getTime(),
+                drawings: {},
+            };
+
+            const sketchPad = new SketchPad(sketchPadContainer);
+
+            function start() {
+                if (student.value == "") {
+                    alert("Please type your name first!");
+                    return;
+                }
+                data.student = student.value;
+                student.style.display = "none";
+                sketchPadContainer.style.visibility = "visible";
+                const label=labels[index];
+                instructions.innerHTML="Please draw a "+label;
+                advanceBtn.innerHTML="NEXT";
+                advanceBtn.onclick=next;
+            }
+
+            function next() {
+                if(sketchPad.paths.length==0){
+                    alert("Draw something first!");
+                    return;
+                }
+
+                const label=lebels[index];
+                data.drawings[label]=sketchPad.paths;
+                sketchPad.reset();
+                index++;
+                const nextLabel=labels[index];
+                instructions.innerHTML="Please draw a "+nextLabel;
+            }
+
+        </script>
+    </body>
 </html>
