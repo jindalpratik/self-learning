@@ -62,7 +62,7 @@ enum class CupcakeScreen(@StringRes val title: Int) {
 @Composable
 fun CupcakeAppBar(
     currentScreen: CupcakeScreen,
-    canNavigateBack: Boolean,
+    canNavigateBack: Boolean,   
     navigateUp: () -> Unit,
     modifier: Modifier = Modifier
 ) {
