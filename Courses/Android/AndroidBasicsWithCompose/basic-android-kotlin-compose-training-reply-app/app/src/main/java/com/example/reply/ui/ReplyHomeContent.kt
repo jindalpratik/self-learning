@@ -113,8 +113,8 @@ fun ReplyListAndDetailContent(
         val activity = LocalContext.current as Activity
         ReplyDetailsScreen(
             replyUiState = replyUiState,
-            onBackPressed = {},
-            modifier = Modifier.weight(1f)
+            modifier = Modifier.weight(1f),
+            onBackPressed = { activity.finish() }
         )
     }
 }
@@ -130,10 +130,11 @@ fun ReplyEmailListItem(
     Card(
         modifier = modifier,
         colors = CardDefaults.cardColors(
-            containerColor = if (selected)
+            containerColor = if (selected) {
                 MaterialTheme.colorScheme.primaryContainer
-            else
+            } else {
                 MaterialTheme.colorScheme.secondaryContainer
+            }
         ),
         onClick = onCardClick
     ) {

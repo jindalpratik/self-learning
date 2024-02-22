@@ -13,18 +13,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.example.reply.ui.utils
+package com.example.reply.test
 
-/**
- * Different type of navigation supported by app depending on size and state.
- */
-enum class ReplyNavigationType {
-    BOTTOM_NAVIGATION, NAVIGATION_RAIL, PERMANENT_NAVIGATION_DRAWER
-}
-
-/**
- * Content shown depending on size and state of device.
- */
-enum class ReplyContentType {
-    LIST_ONLY, LIST_AND_DETAIL
-}
+annotation class TestCompactWidth
+annotation class TestMediumWidth
+annotation class TestExpandedWidth
