@@ -22,7 +22,6 @@ int main()
     auto b = upper_bound(arr, arr + n, to_find);
     cout << b - a << "\n";
 
-    auto r = equal_range(arr, arr+n, to_find);
+    auto r = equal_range(arr, arr + n, to_find);
     cout << r.second - r.first << endl;
-    
 }

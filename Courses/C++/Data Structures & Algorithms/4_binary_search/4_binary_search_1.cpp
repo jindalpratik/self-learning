@@ -2,7 +2,6 @@
 #include <vector>
 using namespace std;
 
-
 // This is not an example of binary search but instead an general way to search for an element in an array.
 int main()
 {
