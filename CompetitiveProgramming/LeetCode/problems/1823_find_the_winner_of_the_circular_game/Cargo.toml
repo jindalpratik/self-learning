@@ -1,0 +1,6 @@
+[package]
+name = "find_the_winner_of_the_circular_game"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
