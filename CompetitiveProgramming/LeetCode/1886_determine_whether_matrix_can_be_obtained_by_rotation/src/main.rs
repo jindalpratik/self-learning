@@ -4,14 +4,13 @@ fn main() {
     println!("{}", find_rotation(mat, target));
 }
 
-pub fn find_rotation(mat: Vec<Vec<i32>>, target: Vec<Vec<i32>>) -> bool {
+pub fn find_rotation(mut mat: Vec<Vec<i32>>, target: Vec<Vec<i32>>) -> bool {
     if &mat == &target {
         return true;
     }
-    let mut new_mat = mat.clone();
     for _ in 0..3 {
-        new_mat = rotate_mat(new_mat.clone());
-        if &new_mat == &target {
+        mat = rotate_mat(mat.clone());
+        if &mat == &target {
             return true;
         }
     }
