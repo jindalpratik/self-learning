@@ -1,9 +1,5 @@
 use std::cmp::min;
 
-pub fn add(left: usize, right: usize) -> usize {
-    left + right
-}
-
 pub fn min_difference(mut nums: Vec<i32>) -> i32 {
     let len = nums.len();
     if len <= 4 {
