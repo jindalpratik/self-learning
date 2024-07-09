@@ -3,5 +3,5 @@
 version = 3
 
 [[package]]
-name = "determine_whether_matrix_can_be_obtained_by_rotation"
+name = "minimum_difference_between_largest_and_smallest_in_three_moves"
 version = "0.1.0"
