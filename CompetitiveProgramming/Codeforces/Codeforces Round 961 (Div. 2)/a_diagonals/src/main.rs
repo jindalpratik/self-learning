@@ -11,15 +11,24 @@ fn main() {
             .map(|x| x.trim().parse().unwrap())
             .collect();
 
-        if nums[0] == 1 {
+        let mut size = nums[0];
+        let mut step = nums[1];
+
+        if step == 0 {
             println!("0");
-        } else if nums[0] <= nums[1] {
-            println!("1");
-        } else if nums[0] % nums[1] == 0 {
-            println!("{}", (nums[0] / nums[1]) + 1);
-        } else {
-            println!("{}", (nums[0] / nums[1]) + 2);
+            continue;
         }
+
+        let mut count = 0;
+        while step > 0 && size > 0{
+            count += 1;
+            step -= size;
+            if count % 2 != 0 {
+                size -= 1;
+            }
+        }
+
+        println!("{}", count);
     }
 }
 
