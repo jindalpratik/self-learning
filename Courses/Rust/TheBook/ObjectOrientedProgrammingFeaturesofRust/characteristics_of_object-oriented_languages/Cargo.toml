@@ -1,0 +1,6 @@
+[package]
+name = "characteristics_of_object-oriented_languages"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
