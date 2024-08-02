@@ -1,8 +1,7 @@
 pub fn first_missing_positive(mut nums: Vec<i32>) -> i32 {
     let mut i = 0;
     while i != nums.len() {
-        if nums[i] == i as i32 + 1
-            || nums[i] > nums.len() as i32
+        if nums[i] > nums.len() as i32
             || nums[i] < 1
             || (nums[i] <= nums.len() as i32 && nums[i] == nums[nums[i] as usize - 1])
         {
