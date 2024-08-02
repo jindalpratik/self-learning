@@ -1,0 +1,6 @@
+[package]
+name = "time_needed_to_rearrange_a_binary_string"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
