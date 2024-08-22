@@ -7,6 +7,9 @@ Scripts/temp
 *.pdb
 target/
 
+# Java
+*.class
+
 # Secrets
 config.*
 secrets.*
