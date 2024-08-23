@@ -1,6 +1,8 @@
+
 import java.util.Scanner;
 
 public class reading_integers {
+
     public static void main(String[] args) {
         String valusOfString = "42";
         int value = Integer.valueOf(valusOfString);

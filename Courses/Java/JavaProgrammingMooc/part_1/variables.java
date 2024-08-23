@@ -1,4 +1,6 @@
+
 public class variables {
+
     public static void main(String[] args) {
         String text = "contains text";
         int wholeNumber = 123;

@@ -1,6 +1,8 @@
+
 import java.util.Scanner;
 
 public class conversation {
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 

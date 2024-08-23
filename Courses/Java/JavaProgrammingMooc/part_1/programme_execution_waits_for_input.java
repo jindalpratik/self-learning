@@ -1,6 +1,8 @@
+
 import java.util.Scanner;
 
 public class programme_execution_waits_for_input {
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 

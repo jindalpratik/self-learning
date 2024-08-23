@@ -1,4 +1,6 @@
+
 public class naming_variables {
+
     public static void main(String[] args) {
         double a = 3.14;
         double b = 22.0;
