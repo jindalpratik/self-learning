@@ -1,0 +1,6 @@
+[package]
+name = "refutability_whether_a_pattern_might_fail_to_match"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
