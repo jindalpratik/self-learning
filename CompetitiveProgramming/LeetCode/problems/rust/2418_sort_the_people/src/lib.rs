@@ -12,7 +12,24 @@ pub fn sort_people(names: Vec<String>, heights: Vec<i32>) -> Vec<String> {
     for height in sorted_heights {
         vec.push(height_name_map[&height].clone());
     }
-    
+
+    vec
+}
+
+pub fn sort_people_alternative(names: Vec<String>, mut heights: Vec<i32>) -> Vec<String> {
+    let mut height_name_map = HashMap::new();
+    for i in 0..heights.len() {
+        height_name_map.insert(heights[i], &names[i]);
+    }
+
+    heights.sort();
+    heights.reverse();
+
+    let mut vec = Vec::new();
+    for i in heights {
+        vec.push(height_name_map[&i].clone());
+    }
+
     vec
 }
 
@@ -25,5 +42,12 @@ mod tests {
         let test_names = vec!["Mary".to_string(),"John".to_string(),"Emma".to_string()];
         let test_heights = vec![180,165,170];
         assert_eq!(sort_people(test_names, test_heights), vec!["Mary".to_string(),"Emma".to_string(),"John".to_string()]);
+    }
+
+    #[test]
+    fn sort_people_alternative_test() {
+        let test_names = vec!["Mary".to_string(),"John".to_string(),"Emma".to_string()];
+        let test_heights = vec![180,165,170];
+        assert_eq!(sort_people_alternative(test_names, test_heights), vec!["Mary".to_string(),"Emma".to_string(),"John".to_string()]);
     }
 }
