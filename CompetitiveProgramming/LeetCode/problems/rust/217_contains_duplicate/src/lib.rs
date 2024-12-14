@@ -25,7 +25,7 @@ mod tests {
 
     #[test]
     fn contains_duplicate_test() {
-        let vec = vec![1,2,3,1];
+        let vec = vec![1, 2, 3, 1];
         assert_eq!(contains_duplicate(vec), true);
     }
 }
