@@ -3,6 +3,7 @@ pub fn two_sum(numbers: Vec<i32>, target: i32) -> Vec<i32> {
     let mut j = numbers.len() - 1;
     loop {
         if numbers[i] + numbers[j] == target {
+            // We can early return as there is exactly one solution.
             return vec![i as i32 + 1, j as i32 + 1];
         } else if numbers[i] + numbers[j] > target {
             j -= 1;
