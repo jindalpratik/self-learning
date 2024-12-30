@@ -7,20 +7,26 @@ vector<int> diag1;
 vector<int> diag2;
 vector<int> position;
 int n;
-int count = 0;
+long count = 0;
 
 void print_position()
 {
     cout << "-------" << endl;
     int count_p = 0;
+    string s = "";
     for (auto i : position)
     {
         count_p++;
-        cout << i << " ";
+        if(i == 0) {
+            s = s+ ".";
+        } else {
+            s = s+"q";
+        }
         if(count_p == n)
         {
             count_p = 0;
-            cout << endl;
+            cout << s << endl;
+            s = "";
         }
     }
     cout << endl << "-------" << endl;
@@ -31,7 +37,7 @@ void n_queens(int y)
     if(y == n)
     {
         count++;
-        print_position();
+        // print_position();
         return;
     }
     else

@@ -1,0 +1,6 @@
+[package]
+name = "a_mex_destruction"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
