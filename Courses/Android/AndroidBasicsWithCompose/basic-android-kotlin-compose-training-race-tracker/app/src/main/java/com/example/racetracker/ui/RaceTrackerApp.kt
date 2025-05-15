@@ -165,11 +165,11 @@ private fun StatusIndicator(
             verticalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.padding_small))
         ) {
             LinearProgressIndicator(
-                progress = progressFactor,
+                progress = { progressFactor },
                 modifier = Modifier
-                    .fillMaxWidth()
-                    .height(dimensionResource(R.dimen.progress_indicator_height))
-                    .clip(RoundedCornerShape(dimensionResource(R.dimen.progress_indicator_corner_radius)))
+                                    .fillMaxWidth()
+                                    .height(dimensionResource(R.dimen.progress_indicator_height))
+                                    .clip(RoundedCornerShape(dimensionResource(R.dimen.progress_indicator_corner_radius)))
             )
             Row(
                 modifier = Modifier.fillMaxWidth(),

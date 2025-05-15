@@ -114,10 +114,15 @@ fun CupcakeTheme(
     if (!view.isInEditMode) {
         SideEffect {
             val window = (view.context as Activity).window
-            window.statusBarColor = colorScheme.primary.toArgb()
-            WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = darkTheme
+
+            // Set the status bar to be transparent
+            WindowCompat.setDecorFitsSystemWindows(window, false)
+
+            // Control the appearance of the status bar icons
+            WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = !darkTheme
         }
     }
+
 
     MaterialTheme(
         colorScheme = colorScheme,
